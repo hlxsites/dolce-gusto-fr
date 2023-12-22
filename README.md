@@ -1,9 +1,9 @@
-# Edge Delivery Services + Adobe Commerce Boilerplate (Experimental)
-This project boilerplate is for Edge Delivery Services projects that integrate with Adobe Commerce.
+# Edge Delivery Services + Dolce Gusto France
+Edge Delivery Services implementation of https://www.dolce-gusto.fr/
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.hlx.page/
-- Live: https://main--{repo}--{owner}.hlx.live/
+- Preview: https://main--dolce-gusto-fr--hlxsites.hlx.page/
+- Live: https://main--dolce-gusto-fr--hlxsites.hlx.live/
 
 ## Installation
 
