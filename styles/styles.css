@@ -32,8 +32,8 @@ html {
   --link-color: var(--text-color);
   --link-hover-color: var(--text-color);
   --background-color: white;
-  --light-color: var(--color-beige);
-  --dark-color: #ccc;
+  --light-color: #fafafa;
+  --dark-color: #ededeb;
 
   /* general colors */
   --color-green: #2c5b30;
@@ -210,6 +210,7 @@ main img {
 /* sections */
 main .section {
   padding: 64px 16px;
+  background-color: var(--light-color);
 }
 
 @media (width >= 600px) {
@@ -228,5 +229,5 @@ main .section {
 /* section metadata */
 main .section.light,
 main .section.highlight {
-  background-color: var(--light-color);
+  background-color: var(--dark-color);
 }

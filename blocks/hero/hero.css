@@ -1,7 +1,7 @@
 main .hero-container > div {
   max-width: unset;
 }
-  
+
 main .hero-container {
   padding: 0;
 }
@@ -21,10 +21,15 @@ main .hero-container {
 
 .hero picture {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   inset: 0;
   object-fit: cover;
   box-sizing: border-box;
+}
+
+.hero > div > div > *:not(picture) {
+  z-index: 1;
+  position: relative;
 }
 
 .hero img {
