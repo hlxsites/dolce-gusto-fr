@@ -10,52 +10,74 @@
  * governing permissions and limitations under the License.
  */
 
+/* Fallback fonts */
+@font-face {
+  font-family: 'VisbyRoundCF-Fallback';
+  src: local(Verdana);
+  size-adjust: 90%;
+  ascent-override: 113%;
+  descent-override: 22%;
+  line-gap-override: normal;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/* Variables */
 :root {
-  /* colors */
-  --link-color: #035fe6;
-  --link-hover-color: #136ff6;
+  /* semantic colors */
+  --text-color: rgb(50, 39, 31);
+  --text-color-inverted: white;
+  --link-color: var(--text-color);
+  --link-hover-color: var(--text-color);
   --background-color: white;
-  --light-color: #eee;
+  --light-color: var(--color-beige);
   --dark-color: #ccc;
-  --text-color: black;
+
+  /* general colors */
+  --color-green: #2c5b30;
+  --color-red: #ea5758;
+  --color-beige: #ededeb;
+  --color-yellow: #f9b91c;
+  --color-purple: #503282;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback;
+  --font-visby-round: VisbyRoundCF, 'VisbyRoundCF-Fallback', sans-serif;
+  --body-font-family: var(--font-visby-round);
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 18px;
-  --body-font-size-xs: 16px;
+  --body-font-size-m: 1.5rem;
+  --body-font-size-s: 1.4rem;
+  --body-font-size-xs: 1.2rem;
 
   /* heading sizes */
-  --heading-font-size-xxl: 48px;
-  --heading-font-size-xl: 40px;
-  --heading-font-size-l: 32px;
-  --heading-font-size-m: 24px;
-  --heading-font-size-s: 20px;
-  --heading-font-size-xs: 18px;
+  --heading-font-size-xxl: 4.8rem;
+  --heading-font-size-xl: 4.0rem;
+  --heading-font-size-l: 2.2rem;
+  --heading-font-size-m: 2.4rem;
+  --heading-font-size-s: 2.0rem;
+  --heading-font-size-xs: 1.8rem;
 
   /* nav height */
   --nav-height: 64px;
 }
 
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 100.06%;
-  ascent-override: 95%;
-  src: local('Arial');
-}
-
 @media (width >= 900px) {
   :root {
-    --heading-font-size-xxl: 60px;
-    --heading-font-size-xl: 48px;
-    --heading-font-size-l: 36px;
-    --heading-font-size-m: 30px;
-    --heading-font-size-s: 24px;
-    --heading-font-size-xs: 22px;
+    --heading-font-size-xxl: 4.0rem;
+    --heading-font-size-xl: 3.0rem;
+    --heading-font-size-l: 3.2rem;
+    --heading-font-size-m: 3.0rem;
+    --heading-font-size-s: 2.4rem;
+    --heading-font-size-xs: 2.2rem;
+
+    /* body sizes */
+    --body-font-size-m: 2.0rem;
+    --body-font-size-s: 1.8rem;
+    --body-font-size-xs: 1.6rem;
   }
 }
 
@@ -80,7 +102,7 @@ header {
 h1, h2, h3,
 h4, h5, h6 {
   font-family: var(--heading-font-family);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.25;
   margin-top: 1em;
   margin-bottom: .5em;
@@ -123,7 +145,7 @@ main pre {
 /* links */
 a:any-link {
   color: var(--link-color);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:hover {
@@ -176,8 +198,8 @@ main img {
 
 .icon {
   display: inline-block;
-  height: 24px;
-  width: 24px;
+  height: 2.4rem;
+  width: 2.4rem;
 }
 
 .icon img {
