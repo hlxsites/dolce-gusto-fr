@@ -45,15 +45,15 @@ const leavesVariants = [
     url: '/images/leaves-1-1.png',
   }, {
     styles: 'left,offscreen',
-    url: '/images/leaves-1-2.webp',
+    url: '/images/leaves-1-2.png',
   },
   {
     styles: 'left',
-    url: '/images/leaves-1-3.webp',
+    url: '/images/leaves-1-3.png',
   }],
   [{
     styles: 'background,bottom',
-    url: '/images/leaves-2-1.avif',
+    url: '/images/leaves-2-1.png',
   }],
 ];
 function buildLeavesSections(main) {
