@@ -32,8 +32,8 @@ html {
   --link-color: var(--text-color);
   --link-hover-color: var(--text-color);
   --background-color: white;
-  --light-color: #fafafa;
-  --dark-color: #ededeb;
+  --lighter-background: #fafafa;
+  --darker-background: #ededeb;
 
   /* general colors */
   --color-green: #2c5b30;
@@ -135,7 +135,7 @@ pre {
 }
 
 main pre {
-  background-color: var(--light-color);
+  background-color: var(--lighter-background);
   padding: 1em;
   border-radius: .25em;
   overflow-x: auto;
@@ -179,7 +179,7 @@ a.button:hover, a.button:focus, button:hover, button:focus  {
 }
 
 button:disabled, button:disabled:hover {
-  background-color: var(--light-color);
+  background-color: var(--lighter-background);
   cursor: unset;
 }
 
@@ -208,7 +208,7 @@ main img {
 /* sections */
 main .section {
   padding: 64px 16px;
-  background-color: var(--light-color);
+  background-color: var(--lighter-background);
 }
 
 @media (width >= 600px) {
@@ -227,7 +227,7 @@ main .section {
 /* section metadata */
 main .section.light,
 main .section.highlight {
-  background-color: var(--dark-color);
+  background-color: var(--darker-background);
 }
 
 main .section[data-background="red"] {
@@ -238,4 +238,13 @@ main .section[data-background="red"] {
 main .section[data-background="green"] {
   color: var(--text-color-inverted);
   background: var(--color-green);
+}
+
+main .section[data-background="purple"] {
+  color: var(--text-color-inverted);
+  background: var(--color-purple);
+}
+
+main .section[data-background="yellow"] {
+  background: var(--color-yellow);
 }

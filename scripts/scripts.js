@@ -10,7 +10,7 @@ import {
   decorateTemplateAndTheme,
   waitForLCP,
   loadBlocks,
-  loadCSS,
+  loadCSS, createOptimizedPicture,
 } from './aem.js';
 
 const LCP_BLOCKS = [
@@ -35,6 +35,44 @@ function buildHeroBlock(main) {
     section.append(buildBlock('hero', { elems: [picture, h1] }));
     main.prepend(section);
   }
+}
+
+// build sections with leaves as background
+// these styles are just an example and should be changed to the actual styles as needed
+const leavesVariants = [
+  [{
+    styles: 'right,offscreen',
+    url: '/images/leaves-1-1.png',
+  }, {
+    styles: 'left,offscreen',
+    url: '/images/leaves-1-2.webp',
+  },
+  {
+    styles: 'left',
+    url: '/images/leaves-1-3.webp',
+  }],
+  [{
+    styles: 'background,bottom',
+    url: '/images/leaves-2-1.avif',
+  }],
+];
+function buildLeavesSections(main) {
+  loadCSS('/styles/leaves.css').then(() => {
+    main.querySelectorAll('.section[data-background="leaves"]').forEach((section) => {
+      // check variant
+      const variant = Number.parseInt(section.getAttribute('data-leaves-variant'), 10);
+
+      if (!variant) {
+        return;
+      }
+
+      leavesVariants[variant - 1].forEach((leaf, index) => {
+        const leafPic = createOptimizedPicture(leaf.url);
+        leafPic.classList.add('leaf', `leaf-${index + 1}`, ...leaf.styles.split(','));
+        section.append(leafPic);
+      });
+    });
+  });
 }
 
 /**
@@ -74,6 +112,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  buildLeavesSections(main);
 }
 
 /**

@@ -1,0 +1,50 @@
+main .section[data-background="leaves"] {
+  position: relative;
+  overflow: hidden;
+}
+
+main .section[data-background="leaves"] > *:not(.leaf) {
+  z-index: 1;
+  position: relative
+}
+
+main .section[data-background="leaves"] .leaf {
+  position: absolute;
+  top: 10px;
+  z-index: 0;
+}
+
+main .section[data-background="leaves"] .leaf.left {
+  left: 0;
+}
+
+main .section[data-background="leaves"] .leaf.bottom {
+  bottom: 0;
+}
+
+main .section[data-background="leaves"] .leaf.background {
+  left: 0;
+  right: 0;
+}
+
+main .section[data-background="leaves"][data-leaves-variant="1"] .leaf-2 {
+  top: -250px; /* TODO: this may be changed once the block is implemented correctly */
+  left: -550px;
+}
+
+main .section[data-background="leaves"][data-leaves-variant="1"] .leaf-1 {
+  top: 550px; /* TODO: this may be changed once the block is implemented correctly */
+  right: -550px;
+}
+
+main .section[data-background="leaves"][data-leaves-variant="1"] .leaf-3 {
+  top: 1100px; /* TODO: this may be changed once the block is implemented correctly */
+}
+
+main .section[data-background="leaves"][data-leaves-variant="2"] img {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
