@@ -56,8 +56,8 @@ html {
   /* heading sizes */
   --heading-font-size-xxl: 4.8rem;
   --heading-font-size-xl: 4.0rem;
-  --heading-font-size-l: 2.2rem;
-  --heading-font-size-m: 2.4rem;
+  --heading-font-size-l: 2.4rem;
+  --heading-font-size-m: 2.2rem;
   --heading-font-size-s: 2.0rem;
   --heading-font-size-xs: 1.8rem;
 
@@ -69,7 +69,7 @@ html {
   :root {
     --heading-font-size-xxl: 4.0rem;
     --heading-font-size-xl: 3.0rem;
-    --heading-font-size-l: 3.2rem;
+    --heading-font-size-l: 3.0rem;
     --heading-font-size-m: 3.0rem;
     --heading-font-size-s: 2.4rem;
     --heading-font-size-xs: 2.2rem;
@@ -228,4 +228,14 @@ main .section {
 main .section.light,
 main .section.highlight {
   background-color: var(--dark-color);
+}
+
+main .section[data-background="red"] {
+  color: var(--text-color-inverted);
+  background: var(--color-red);
+}
+
+main .section[data-background="green"] {
+  color: var(--text-color-inverted);
+  background: var(--color-green);
 }
