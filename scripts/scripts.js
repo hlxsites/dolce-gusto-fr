@@ -10,7 +10,7 @@ import {
   decorateTemplateAndTheme,
   waitForLCP,
   loadBlocks,
-  loadCSS, createOptimizedPicture,
+  loadCSS,
 } from './aem.js';
 
 const LCP_BLOCKS = [
@@ -71,7 +71,7 @@ function buildLeavesSections(main) {
           <picture>
             <source type="image/webp" srcset="${leaf.url}?format=webply&optimize=medium" media="(min-width: 600px)">
             <source type="image/webp" srcset="${leaf.url}?format=webply&optimize=medium&width=600">
-            <img src="${leaf.url}" >
+            <img src="${leaf.url}?format=png&optimize=medium" >
           </picture>
         `);
         leafPic.querySelector('picture').classList.add('leaf', `leaf-${index + 1}`, ...leaf.styles.split(','));
