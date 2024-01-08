@@ -1,0 +1,32 @@
+.section.hero-carousel-container {
+  padding: 0;
+}
+
+.section.hero-carousel-container .hero-carousel-wrapper {
+  max-width: unset;
+}
+
+.hero-carousel-container .desktop-image {
+  display: none;
+}
+
+.hero-carousel.block {
+  height: 600px;
+  overflow-y: hidden;
+}
+
+.hero-carousel.block .slide img {
+  height: 600px;
+  width: 100vw;
+  object-fit: cover;
+}
+
+@media (min-width: 900px) {
+  .hero-carousel-container .mobile-image {
+    display: none;
+  }
+
+  .hero-carousel-container .desktop-image {
+    display: block;
+  }
+}
