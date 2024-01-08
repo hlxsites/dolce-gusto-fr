@@ -42,18 +42,18 @@ function buildHeroBlock(main) {
 const leavesVariants = [
   [{
     styles: 'right,offscreen',
-    url: '/images/leaves-1-1.png',
+    url: '/media/leaves-1-1.png',
   }, {
     styles: 'left,offscreen',
-    url: '/images/leaves-1-2.png',
+    url: '/media/leaves-1-2.png',
   },
   {
     styles: 'left',
-    url: '/images/leaves-1-3.png',
+    url: '/media/leaves-1-3.png',
   }],
   [{
     styles: 'background,bottom',
-    url: '/images/leaves-2-1.png',
+    url: '/media/leaves-2-1.png',
   }],
 ];
 function buildLeavesSections(main) {
@@ -67,8 +67,14 @@ function buildLeavesSections(main) {
       }
 
       leavesVariants[variant - 1].forEach((leaf, index) => {
-        const leafPic = createOptimizedPicture(leaf.url);
-        leafPic.classList.add('leaf', `leaf-${index + 1}`, ...leaf.styles.split(','));
+        const leafPic = document.createRange().createContextualFragment(`
+          <picture>
+            <source type="image/webp" srcset="${leaf.url}?format=webply&optimize=medium" media="(min-width: 600px)">
+            <source type="image/webp" srcset="${leaf.url}?format=webply&optimize=medium&width=600">
+            <img src="${leaf.url}" >
+          </picture>
+        `);
+        leafPic.querySelector('picture').classList.add('leaf', `leaf-${index + 1}`, ...leaf.styles.split(','));
         section.append(leafPic);
       });
     });
