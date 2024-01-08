@@ -12,8 +12,8 @@
 
 /* Fallback fonts */
 @font-face {
-  font-family: 'VisbyRoundCF-Fallback';
-  src: local(Verdana);
+  font-family: VisbyRoundCF-Fallback;
+  src: local(verdana);
   size-adjust: 90%;
   ascent-override: 113%;
   descent-override: 22%;
@@ -27,7 +27,7 @@ html {
 /* Variables */
 :root {
   /* semantic colors */
-  --text-color: rgb(50, 39, 31);
+  --text-color: rgb(50 39 31);
   --text-color-inverted: white;
   --link-color: var(--text-color);
   --link-hover-color: var(--text-color);
@@ -43,7 +43,7 @@ html {
   --color-purple: #503282;
 
   /* fonts */
-  --font-visby-round: VisbyRoundCF, 'VisbyRoundCF-Fallback', sans-serif;
+  --font-visby-round: 'VisbyRoundCF', 'VisbyRoundCF-Fallback', sans-serif;
   --body-font-family: var(--font-visby-round);
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
@@ -159,7 +159,7 @@ a.button:any-link, button {
   display: inline-block;
   box-sizing: border-box;
   text-decoration: none;
-  border: 2px solid currentColor;
+  border: 2px solid currentcolor;
   padding: 5px 30px;
   text-align: center;
   font-style: normal;
