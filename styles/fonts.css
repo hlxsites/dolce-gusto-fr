@@ -87,3 +87,9 @@
   font-display: swap;
   src: url('/fonts/VisbyRoundCF-Heavy.woff2') format('woff2');
 }
+
+@font-face {
+  font-family: pagebuilder-font;
+  font-display: swap;
+  src: url('/fonts/pagebuilder-icons.woff') format('woff');
+}

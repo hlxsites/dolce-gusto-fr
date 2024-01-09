@@ -1,0 +1,92 @@
+.carousel-root {
+  position: relative;
+}
+
+.carousel-root .slides-container {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.carousel-root .slides-container > * {
+  display: block;
+  flex-shrink: 0;
+  max-width: 100%;
+  scroll-snap-align: start;
+}
+
+.carousel-root .controls-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.carousel-root .controls-container button[name="previous"] {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+}
+
+.carousel-root .controls-container button[name="next"]::after {
+  content: '\f102';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: pagebuilder-font;
+  font-size: 1rem;
+}
+
+.carousel-root .controls-container button[name="previous"]::after {
+  content: '\f102';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg);
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: pagebuilder-font;
+  font-size: 1rem;
+}
+
+.carousel-root .controls-container button[name="next"] {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+}
+
+.carousel-root .controls-container .change-slide-button {
+  background: #eae9e8;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  padding: unset;
+  pointer-events: all;
+}
+
+.carousel-root .controls-container .selector-buttons {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.carousel-root .controls-container .selector-buttons button {
+  width: 1.2rem;
+  height: 1.2rem;
+  padding: 0;
+  background: white;
+  opacity: 0.3;
+  border: none;
+  pointer-events: all;
+}
+
+.carousel-root .controls-container .selector-buttons button.active {
+  opacity: 1;
+}
