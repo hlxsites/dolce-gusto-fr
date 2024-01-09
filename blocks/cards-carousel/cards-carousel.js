@@ -27,6 +27,6 @@ export default async function decorate(block) {
     }
   });
 
-  const carousel = await createCarousel(...cards);
+  const carousel = await createCarousel(cards);
   block.append(carousel);
 }

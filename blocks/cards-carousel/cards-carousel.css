@@ -21,10 +21,6 @@
   display: none;
 }
 
-.cards-carousel .carousel-root .controls-container {
-  bottom: -25px;
-}
-
 .cards-carousel .carousel-root .controls-container .selector-buttons {
   display: none;
 }
@@ -78,16 +74,9 @@
   border-color: white;
 }
 
-.cards-carousel.wide .carousel-root .controls-container .selector-buttons {
-  display: flex;
-  bottom: -15px;
-}
-
 .cards-carousel.wide .carousel-root .controls-container .selector-buttons button {
   background: black;
 }
-
-
 
 @media (min-width: 900px) {
   .cards-carousel .desktop-image {

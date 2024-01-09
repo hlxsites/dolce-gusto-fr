@@ -14,7 +14,7 @@ export default async function decorate(block) {
     child.replaceWith(link);
   });
 
-  const carousel = await createCarousel(...block.querySelectorAll(':scope > *'));
+  const carousel = await createCarousel([...block.querySelectorAll(':scope > *')]);
 
   block.append(carousel);
 }

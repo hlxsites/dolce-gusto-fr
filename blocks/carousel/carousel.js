@@ -2,7 +2,7 @@ import { loadCSS } from '../../scripts/aem.js';
 
 function setActiveButton(activeSlideNumber, buttons) {
   buttons.forEach((button) => button.classList.remove('active'));
-  buttons[activeSlideNumber].classList.add('active');
+  buttons[activeSlideNumber]?.classList.add('active');
 }
 
 function goToSlide(slideNumber, slidesContainer, slides, buttons) {
@@ -15,13 +15,14 @@ function findActiveSlide(slidesContainer, slides) {
   return slides.indexOf(activeElement);
 }
 
-export async function createCarousel(...slides) {
+export async function createCarousel(slides) {
   await loadCSS('/blocks/carousel/carousel.css');
 
   const carouselRoot = document.createElement('div');
   const slidesContainer = document.createElement('div');
 
   slides.forEach((item) => item.classList.add('slide'));
+  slides[0].classList.add('active');
 
   slidesContainer.classList.add('slides-container');
   carouselRoot.classList.add('carousel-root');
