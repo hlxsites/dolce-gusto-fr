@@ -37,6 +37,50 @@ function buildHeroBlock(main) {
   }
 }
 
+// build sections with leaves as background
+// these styles are just an example and should be changed to the actual styles as needed
+const leavesVariants = [
+  [{
+    styles: 'right,offscreen',
+    url: '/media/leaves-1-1.png',
+  }, {
+    styles: 'left,offscreen',
+    url: '/media/leaves-1-2.png',
+  },
+  {
+    styles: 'left',
+    url: '/media/leaves-1-3.png',
+  }],
+  [{
+    styles: 'background,bottom',
+    url: '/media/leaves-2-1.png',
+  }],
+];
+function buildLeavesSections(main) {
+  loadCSS('/styles/leaves.css').then(() => {
+    main.querySelectorAll('.section[data-background="leaves"]').forEach((section) => {
+      // check variant
+      const variant = Number.parseInt(section.getAttribute('data-leaves-variant'), 10);
+
+      if (!variant) {
+        return;
+      }
+
+      leavesVariants[variant - 1].forEach((leaf, index) => {
+        const leafPic = document.createRange().createContextualFragment(`
+          <picture>
+            <source type="image/webp" srcset="${leaf.url}?format=webply&optimize=medium" media="(min-width: 600px)">
+            <source type="image/webp" srcset="${leaf.url}?format=webply&optimize=medium&width=600">
+            <img src="${leaf.url}?format=png&optimize=medium" >
+          </picture>
+        `);
+        leafPic.querySelector('picture').classList.add('leaf', `leaf-${index + 1}`, ...leaf.styles.split(','));
+        section.append(leafPic);
+      });
+    });
+  });
+}
+
 /**
  * load fonts.css and set a session storage flag
  */
@@ -74,6 +118,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  buildLeavesSections(main);
 }
 
 /**

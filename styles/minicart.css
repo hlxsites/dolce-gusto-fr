@@ -239,10 +239,7 @@
 
 .minicart-panel .overlay-background {
     position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgb(0 0 0 / 60%);
     z-index: 100;
     display: flex;

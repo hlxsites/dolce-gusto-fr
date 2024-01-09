@@ -10,52 +10,74 @@
  * governing permissions and limitations under the License.
  */
 
+/* Fallback fonts */
+@font-face {
+  font-family: VisbyRoundCF-Fallback;
+  src: local(verdana);
+  size-adjust: 90%;
+  ascent-override: 113%;
+  descent-override: 22%;
+  line-gap-override: normal;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/* Variables */
 :root {
-  /* colors */
-  --link-color: #035fe6;
-  --link-hover-color: #136ff6;
+  /* semantic colors */
+  --text-color: rgb(50 39 31);
+  --text-color-inverted: white;
+  --link-color: var(--text-color);
+  --link-hover-color: var(--text-color);
   --background-color: white;
-  --light-color: #eee;
-  --dark-color: #ccc;
-  --text-color: black;
+  --lighter-background: #fafafa;
+  --darker-background: #ededeb;
+
+  /* general colors */
+  --color-green: #2c5b30;
+  --color-red: #ea5758;
+  --color-beige: #ededeb;
+  --color-yellow: #f9b91c;
+  --color-purple: #503282;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback;
+  --font-visby-round: 'VisbyRoundCF', 'VisbyRoundCF-Fallback', sans-serif;
+  --body-font-family: var(--font-visby-round);
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 18px;
-  --body-font-size-xs: 16px;
+  --body-font-size-m: 1.5rem;
+  --body-font-size-s: 1.4rem;
+  --body-font-size-xs: 1.2rem;
 
   /* heading sizes */
-  --heading-font-size-xxl: 48px;
-  --heading-font-size-xl: 40px;
-  --heading-font-size-l: 32px;
-  --heading-font-size-m: 24px;
-  --heading-font-size-s: 20px;
-  --heading-font-size-xs: 18px;
+  --heading-font-size-xxl: 4.8rem;
+  --heading-font-size-xl: 4.0rem;
+  --heading-font-size-l: 2.4rem;
+  --heading-font-size-m: 2.2rem;
+  --heading-font-size-s: 2.0rem;
+  --heading-font-size-xs: 1.8rem;
 
   /* nav height */
   --nav-height: 64px;
 }
 
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 100.06%;
-  ascent-override: 95%;
-  src: local('Arial');
-}
-
 @media (width >= 900px) {
   :root {
-    --heading-font-size-xxl: 60px;
-    --heading-font-size-xl: 48px;
-    --heading-font-size-l: 36px;
-    --heading-font-size-m: 30px;
-    --heading-font-size-s: 24px;
-    --heading-font-size-xs: 22px;
+    --heading-font-size-xxl: 4.0rem;
+    --heading-font-size-xl: 3.0rem;
+    --heading-font-size-l: 3.0rem;
+    --heading-font-size-m: 3.0rem;
+    --heading-font-size-s: 2.4rem;
+    --heading-font-size-xs: 2.2rem;
+
+    /* body sizes */
+    --body-font-size-m: 2.0rem;
+    --body-font-size-s: 1.8rem;
+    --body-font-size-xs: 1.6rem;
   }
 }
 
@@ -80,7 +102,7 @@ header {
 h1, h2, h3,
 h4, h5, h6 {
   font-family: var(--heading-font-family);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.25;
   margin-top: 1em;
   margin-bottom: .5em;
@@ -113,7 +135,7 @@ pre {
 }
 
 main pre {
-  background-color: var(--light-color);
+  background-color: var(--lighter-background);
   padding: 1em;
   border-radius: .25em;
   overflow-x: auto;
@@ -123,7 +145,7 @@ main pre {
 /* links */
 a:any-link {
   color: var(--link-color);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:hover {
@@ -137,35 +159,33 @@ a.button:any-link, button {
   display: inline-block;
   box-sizing: border-box;
   text-decoration: none;
-  border: 2px solid transparent;
+  border: 2px solid currentcolor;
   padding: 5px 30px;
   text-align: center;
   font-style: normal;
   font-weight: 600;
   cursor: pointer;
-  color: var(--background-color);
-  background-color: var(--link-color);
+  background: none;
   margin: 16px 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 30px;
+  text-transform: uppercase;
 }
 
 a.button:hover, a.button:focus, button:hover, button:focus  {
-  background-color: var(--link-hover-color);
   cursor: pointer;
 }
 
 button:disabled, button:disabled:hover {
-  background-color: var(--light-color);
+  background-color: var(--lighter-background);
   cursor: unset;
 }
 
 a.button.secondary, button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
-  color: var(--text-color)
+  border: 2px solid var(--text-color-inverted);
+  color: var(--text-color-inverted);
 }
 
 main img {
@@ -176,8 +196,8 @@ main img {
 
 .icon {
   display: inline-block;
-  height: 24px;
-  width: 24px;
+  height: 2.4rem;
+  width: 2.4rem;
 }
 
 .icon img {
@@ -188,6 +208,7 @@ main img {
 /* sections */
 main .section {
   padding: 64px 16px;
+  background-color: var(--lighter-background);
 }
 
 @media (width >= 600px) {
@@ -206,5 +227,24 @@ main .section {
 /* section metadata */
 main .section.light,
 main .section.highlight {
-  background-color: var(--light-color);
+  background-color: var(--darker-background);
+}
+
+main .section[data-background="red"] {
+  color: var(--text-color-inverted);
+  background: var(--color-red);
+}
+
+main .section[data-background="green"] {
+  color: var(--text-color-inverted);
+  background: var(--color-green);
+}
+
+main .section[data-background="purple"] {
+  color: var(--text-color-inverted);
+  background: var(--color-purple);
+}
+
+main .section[data-background="yellow"] {
+  background: var(--color-yellow);
 }
